@@ -1,13 +1,80 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>P.A.W’s Handcrafted Soaps</title>
-  </head>
-  <body>
-    <h1>P.A.W’s Handcrafted Soaps</h1>
-    <p>Site is live ✅</p>
-  </body>
-</html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>P.A.W’s Handcrafted Soaps</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- Announcement bar -->
+  <div class="announce">
+    Get 10% off a purchase of 4 bars with code <strong>PAWS10</strong>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">P.A.W’s Handcrafted Soaps</a>
+
+      <nav class="nav">
+        <a href="index.html" class="nav__link is-active">Home</a>
+        <a href="shop.html" class="nav__link">Shop</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+        <button class="cart-btn" onclick="toggleCart()" aria-label="Open cart">
+          Cart <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1>Cozy, rustic, small-batch soap.</h1>
+          <p>Handcrafted bars made with care. Choose local pickup or flat-rate shipping.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="shop.html">Shop Soaps</a>
+            <a class="btn" href="checkout.html">Checkout</a>
+          </div>
+          <p class="micro">Flat-rate shipping: <strong>$12</strong> • Local pickup available</p>
+        </div>
+        <div class="hero__card">
+          <div class="hero__card-inner">
+            <h3>Popular Picks</h3>
+            <ul class="bullets">
+              <li>Soft, cozy scents</li>
+              <li>Great gift bundles</li>
+              <li>Made in small batches</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured products -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Featured Soaps</h2>
+          <a class="link" href="shop.html">View all →</a>
+        </div>
+
+        <div class="grid" id="featuredGrid">
+          <!-- Cards rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container split">
+        <div>
+          <h2>How ordering works</h2>
+          <ol class="steps">
+            <li>Add soaps to your cart</li>
+            <li>Choose pickup or shipping</li>
+            <li>Pay via Venmo and submit your order</li>
 
