@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout | P.A.W’s Handcrafted Soaps</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="announce">Pay via Venmo @Patricia-Woerz • Shipping $12 flat</div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">P.A.W’s Handcrafted Soaps</a>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="shop.html" class="nav__link">Shop</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+        <button class="cart-btn" onclick="toggleCart()">Cart <span id="cartCount" class="cart-count">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container split">
+      <div class="box">
+        <h2>Checkout</h2>
+        <p class="micro">Choose pickup or shipping. Then click “Submit Order” to open the order form pre-filled.</p>
+
+        <label><strong>Fulfillment</strong></label><br/>
+        <label><input type="radio" name="fulfillment" value="pickup" checked> Local Pickup</label><br/>
+        <label><input type="radio" name="fulfillment" value="ship"> Shipping (+$12)</label>
+
+        <hr style="border:none;border-top:1px solid #e5e7eb;margin:14px 0;">
+
+        <label><strong>Name</strong></label>
+        <input id="name" class="field" />
+
+        <label><strong>Email</strong></label>
+        <input id="email" class="field" type="email" />
+
+        <label><strong>Phone (optional)</strong></label>
+        <input id="phone" class="field" />
+
+        <label><strong>Shipping Address</strong></label>
+        <textarea id="address" class="field" rows="3" placeholder="Type LOCAL PICKUP if picking up"></textarea>
+
+        <label><strong>Notes (optional)</strong></label>
+        <textarea id="notes" class="field" rows="3"></textarea>
+
+        <button class="btn btn--primary btn--block" onclick="submitOrder()">Submit Order (opens Google Form)</button>
+
+        <p class="micro" style="margin-top:10px;">
+          Payment: Send Venmo to <strong>@Patricia-Woerz</strong> and include the order number shown in the order summary.
+        </p>
+
+        <textarea id="summary" class="field" rows="10" readonly></textarea>
+      </div>
+
+      <div class="box">
+        <h3>Your Cart</h3>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-totals">
+          <div class="row"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+          <div class="row"><span>Shipping</span><strong id="shipCost">$0.00</strong></div>
+          <div class="row"><span>Total</span><strong id="totalCost">$0.00</strong></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer__panel">
+      <div class="cart-drawer__head">
+        <h3>Your Cart</h3>
+        <button class="icon-btn" onclick="toggleCart()">✕</button>
+      </div>
+      <div id="cartItems2" class="cart-items"></div>
+      <div class="cart-totals">
+        <div class="row"><span>Subtotal</span><strong id="cartSubtotal2">$0.00</strong></div>
+      </div>
+    </div>
+    <div class="cart-drawer__backdrop" onclick="toggleCart()"></div>
+  </aside>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    // Paste your Google Form prefill BASE URL here:
+    const FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSeAuEPlnvYwTBK9Wu_8P1xklYwUH1yPWblmDxVmPDUzCTgSWA/viewform?usp=pp_url";
+
+    const ENTRY = {
+      name: "entry.710328857",
+      email: "entry.2193670",
+      phone: "entry.592969770",
+      fulfillment: "entry.282879526",
+      address: "entry.1852940269",
+      summary: "entry.502344436",
+      paidConfirm: "entry.864097831",
+      notes: "entry.1890766781"
+    };
+
+    const SHIPPING = 12;
+
+    function loadCartObj(){ try { return JSON.parse(localStorage.getItem("paws_cart_v1")) || {}; } catch { return {}; } }
+
+    function subtotal(cart){
+      return Object.entries(cart).reduce((sum,[id,qty])=>{
+        const p = (
