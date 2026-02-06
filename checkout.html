@@ -95,7 +95,13 @@
 
 
   <script src="assets/js/products.js"></script>
-  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/cart.js">// --- FORCE checkout page to render cart ---
+document.addEventListener("DOMContentLoaded", function() {
+  if (typeof renderCartUI === "function") {
+    renderCartUI();
+  }
+});
+</script>
   <script>
     // Paste your Google Form prefill BASE URL here:
     const FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSeAuEPlnvYwTBK9Wu_8P1xklYwUH1yPWblmDxVmPDUzCTgSWA/viewform?usp=pp_url";
