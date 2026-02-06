@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | P.A.W’s Handcrafted Soaps</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="announce">Questions? Email pawssoaps@gmail.com</div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">P.A.W’s Handcrafted Soaps</a>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="shop.html" class="nav__link">Shop</a>
+        <a href="contact.html" class="nav__link is-active">Contact</a>
+        <button class="cart-btn" onclick="toggleCart()">Cart <span id="cartCount" class="cart-count">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container split">
+      <div class="box">
+        <h2>Contact</h2>
+        <p>Email: <strong>pawssoaps@gmail.com</strong></p>
+        <p class="micro">For local pickup coordination, custom bundles, or scent questions.</p>
+
+        <h3 style="margin-top:16px;">Venmo</h3>
+        <p class="micro">Pay to <strong>@Patricia-Woerz</strong> and include your order number.</p>
+      </div>
+
+      <div class="box">
+        <h3>Local Pickup</h3>
+        <p class="micro">Choose <strong>Local Pickup</strong> at checkout and we’ll email you to coordinate.</p>
+
+        <h3 style="margin-top:16px;">Shipping</h3>
+        <p class="micro"><strong>$12 flat-rate shipping</strong> per order.</p>
+      </div>
+    </div>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer__panel">
+      <div class="cart-drawer__head">
+        <h3>Your Cart</h3>
+        <button class="icon-btn" onclick="toggleCart()">✕</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-totals">
+        <div class="row"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+      </div>
+      <div class="cart-actions">
+        <a class="btn btn--primary btn--block" href="checkout.html">Go to Checkout</a>
+        <a class="btn btn--block" href="shop.html">Continue Shopping</a>
+      </div>
+    </div>
+    <div class="cart-drawer__backdrop" onclick="toggleCart()"></div>
+  </aside>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>renderCartUI();</script>
+</body>
+</html>
