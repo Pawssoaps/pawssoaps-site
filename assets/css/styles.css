@@ -101,6 +101,9 @@ a{color:inherit; text-decoration:none}
   background:#fff; box-shadow:var(--shadow); border-left:1px solid var(--line);
   display:flex; flex-direction:column;
 }
+.cart-drawer__panel { z-index: 2; }
+.cart-drawer__backdrop { z-index: 1; }
+
 .cart-drawer__head{display:flex; align-items:center; justify-content:space-between; padding:16px; border-bottom:1px solid var(--line)}
 .icon-btn{border:none; background:transparent; font-size:20px; cursor:pointer}
 .cart-items{padding:10px 16px; overflow:auto; flex:1}
