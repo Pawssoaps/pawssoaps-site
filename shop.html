@@ -32,20 +32,27 @@
     </div>
   </main>
 
+   <!-- Cart drawer -->
   <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
     <div class="cart-drawer__panel">
       <div class="cart-drawer__head">
         <h3>Your Cart</h3>
-        <button class="icon-btn" onclick="toggleCart()">✕</button>
+        <button class="icon-btn" onclick="toggleCart()" aria-label="Close cart">✕</button>
       </div>
+
       <div id="cartItems" class="cart-items"></div>
+
       <div class="cart-totals">
         <div class="row"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+        <div class="row micro"><span>Shipping calculated at checkout</span></div>
       </div>
+
       <div class="cart-actions">
         <a class="btn btn--primary btn--block" href="checkout.html">Go to Checkout</a>
+        <a class="btn btn--block" href="shop.html">Continue Shopping</a>
       </div>
     </div>
+
     <div class="cart-drawer__backdrop" onclick="toggleCart()"></div>
   </aside>
 
