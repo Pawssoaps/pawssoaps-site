@@ -79,3 +79,4 @@ window.renderCartUI = function(){
     subEl.textContent = money(subtotal);
   }
 }
+window.setQty = setQty;
