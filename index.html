@@ -77,4 +77,54 @@
             <li>Add soaps to your cart</li>
             <li>Choose pickup or shipping</li>
             <li>Pay via Venmo and submit your order</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Venmo</h3>
+          <p>Pay to <strong>@Patricia-Woerz</strong> and include your order number in the note.</p>
+          <p class="micro">We’ll confirm by email once received.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
+   <!-- Cart drawer -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer__panel">
+      <div class="cart-drawer__head">
+        <h3>Your Cart</h3>
+        <button class="icon-btn" onclick="toggleCart()" aria-label="Close cart">✕</button>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <div class="cart-totals">
+        <div class="row"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+        <div class="row micro"><span>Shipping calculated at checkout</span></div>
+      </div>
+
+      <div class="cart-actions">
+        <a class="btn btn--primary btn--block" href="checkout.html">Go to Checkout</a>
+        <a class="btn btn--block" href="shop.html">Continue Shopping</a>
+      </div>
+    </div>
+
+    <div class="cart-drawer__backdrop" onclick="toggleCart()"></div>
+  </aside>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> P.A.W’s Handcrafted Soaps</p>
+      <p class="micro">Handmade • Small batch • Cozy rustic charm</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderFeatured();
+    renderCartUI();
+  </script>
+</body>
+</html>
